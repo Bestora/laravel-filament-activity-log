@@ -1,17 +1,24 @@
 {
-    "name": "rmsramos/activitylog",
-    "description": "This is my package activitylog",
+    "name": "bestora/laravel-filament-activity-log",
+    "description": "Laravel Filament Activity Log",
     "keywords": [
-        "Rmsramos",
+        "bestora",
         "laravel",
+        "filament",
+        "filament-plugin",
         "activitylog"
     ],
-    "homepage": "https://github.com/rmsramos/activitylog",
+    "homepage": "https://github.com/bestora/laravel-filament-activity-log",
     "license": "MIT",
     "authors": [
         {
             "name": "Rômulo Ramos",
             "email": "rmsramos@gmail.com",
+            "role": "Developer"
+        }
+        {
+            "name": "Dennis Rehbehn",
+            "email": "lfal@bestora.de",
             "role": "Developer"
         }
     ],

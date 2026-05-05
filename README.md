@@ -1,15 +1,17 @@
-# ActivityLog
+# Laravel Filament Activity Log
 
-### Spatie/Laravel-activitylog for Filament
+Fork of [Rômulo Ramos Activitylog](https://github.com/rmsramos/activitylog)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rmsramos/activitylog.svg?style=flat-square)](https://packagist.org/packages/rmsramos/activitylog)
+### Spatie Laravel Activity Log for Filament
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bestora/laravel-filament-activity-log.svg?style=flat-square)](https://packagist.org/packages/bestora/laravel-filament-activity-log)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/rmsramos/activitylog/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/rmsramos/activitylog/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/rmsramos/activitylog.svg?style=flat-square)](https://packagist.org/packages/rmsramos/activitylog/stats)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/bestora/laravel-filament-activity-log/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/bestora/laravel-filament-activity-log/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/bestora/laravel-filament-activity-log.svg?style=flat-square)](https://packagist.org/packages/bestora/laravel-filament-activity-log/stats)
 
 <div class="filament-hidden">
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/rmsramos/activitylog/main/arts/cover.jpeg)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/bestora/laravel-filament-activity-log/main/arts/cover.jpeg)
 
 </div>
 
@@ -17,9 +19,9 @@ This package provides a Filament resource that shows you all of the activity log
 
 ## Requirements
 
--   Laravel v12
--   Filament v3
--   Spatie/Laravel-activitylog v4
+-   Laravel v13
+-   Filament v4
+-   Spatie Laravel Activity Log v4
 
 ## Languages Supported
 
@@ -42,7 +44,7 @@ ActivityLog Plugin is translated for :
 You can install the package via composer:
 
 ```bash
-composer require rmsramos/activitylog
+composer require bestora/laravel-filament-activity-log
 ```
 
 After that run the install command:
@@ -126,7 +128,7 @@ class NewsItem extends Model
 
 ## Plugin usage
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/rmsramos/activitylog/main/arts/resource.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/bestora/laravel-filament-activity-log/main/arts/resource.png)
 
 In your Panel ServiceProvider `(App\Providers\Filament)` active the plugin
 
@@ -561,7 +563,7 @@ public function panel(Panel $panel): Panel
 ## Relationship manager
 
 If you have a model that uses the `Spatie\Activitylog\Traits\LogsActivity` trait, you can add the `Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager` relationship manager to your Filament resource to display all of the activity logs that are performed on your model.
-![Screenshot of Application Feature](https://raw.githubusercontent.com/rmsramos/activitylog/main/arts/relationManager.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/bestora/laravel-filament-activity-log/main/arts/relationManager.png)
 
 ```php
 use Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager;
@@ -576,7 +578,7 @@ public static function getRelations(): array
 
 ## Timeline Action
 
-![Screenshot of Application Feature](https://raw.githubusercontent.com/rmsramos/activitylog/main/arts/timeline.png)
+![Screenshot of Application Feature](https://raw.githubusercontent.com/bestora/laravel-filament-activity-log/main/arts/timeline.png)
 
 To make viewing activity logs easier, you can use a custom action. In your UserResource in the table function, add the `ActivityLogTimelineTableAction`.
 
@@ -691,6 +693,7 @@ Special acknowledgment goes to these remarkable tools and people (developers), t
 ## Credits
 
 -   [Rômulo Ramos](https://github.com/rmsramos)
+-   [TappNetwork](https://github.com/TappNetwork)
 -   [All Contributors](../../contributors)
 
 ## License
