@@ -692,8 +692,8 @@ Special acknowledgment goes to these remarkable tools and people (developers), t
 
 ## Credits
 
--   [Rômulo Ramos](https://github.com/rmsramos)
--   [TappNetwork](https://github.com/TappNetwork)
+-   [Rômulo Ramos](https://github.com/rmsramos) for the original Package
+-   [TappNetwork](https://github.com/TappNetwork) for the Filament v4 PR
 -   [All Contributors](../../contributors)
 
 ## License
