@@ -1,14 +1,14 @@
 <?php
 
-namespace Rmsramos\Activitylog\RelationManagers;
+namespace Bestora\FilamentActivityLog\RelationManagers;
 
 use Filament\Schemas\Schema;
 use Filament\Actions\ViewAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use Rmsramos\Activitylog\ActivitylogPlugin;
-use Rmsramos\Activitylog\Resources\ActivitylogResource\ActivitylogResource;
+use Bestora\FilamentActivityLog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\Resources\ActivitylogResource\ActivitylogResource;
 
 class ActivitylogRelationManager extends RelationManager
 {

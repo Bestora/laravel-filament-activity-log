@@ -1,9 +1,9 @@
 <?php
 
-namespace Rmsramos\Activitylog\Resources\ActivitylogResource\Pages;
+namespace Bestora\FilamentActivityLog\Resources\ActivitylogResource\Pages;
 
 use Filament\Resources\Pages\ListRecords;
-use Rmsramos\Activitylog\Resources\ActivitylogResource\ActivitylogResource;
+use Bestora\FilamentActivityLog\Resources\ActivitylogResource\ActivitylogResource;
 
 class ListActivitylog extends ListRecords
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog\Helpers;
+namespace Bestora\FilamentActivityLog\Helpers;
 
 use Illuminate\Support\Str;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog\Resources\ActivitylogResource;
+namespace Bestora\FilamentActivityLog\Resources\ActivitylogResource;
 
 use Exception;
 use Filament\Facades\Filament;
@@ -23,14 +23,14 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Livewire\Component as Livewire;
-use Rmsramos\Activitylog\Actions\Concerns\ActionContent;
-use Rmsramos\Activitylog\ActivitylogPlugin;
-use Rmsramos\Activitylog\Helpers\ActivityLogHelper;
-use Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager;
-use Rmsramos\Activitylog\Resources\ActivitylogResource\Pages\ListActivitylog;
-use Rmsramos\Activitylog\Resources\ActivitylogResource\Pages\ViewActivitylog;
-use Rmsramos\Activitylog\Resources\ActivitylogResource\Schemas\ActivitylogForm;
-use Rmsramos\Activitylog\Traits\HasCustomActivityResource;
+use Bestora\FilamentActivityLog\Actions\Concerns\ActionContent;
+use Bestora\FilamentActivityLog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\Helpers\ActivityLogHelper;
+use Bestora\FilamentActivityLog\RelationManagers\ActivitylogRelationManager;
+use Bestora\FilamentActivityLog\Resources\ActivitylogResource\Pages\ListActivitylog;
+use Bestora\FilamentActivityLog\Resources\ActivitylogResource\Pages\ViewActivitylog;
+use Bestora\FilamentActivityLog\Resources\ActivitylogResource\Schemas\ActivitylogForm;
+use Bestora\FilamentActivityLog\Traits\HasCustomActivityResource;
 use Spatie\Activitylog\Models\Activity;
 
 class ActivitylogResource extends Resource

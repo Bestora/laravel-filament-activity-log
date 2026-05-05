@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog\Traits;
+namespace Bestora\FilamentActivityLog\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 

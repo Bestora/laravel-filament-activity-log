@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog\Resources\ActivitylogResource\Schemas;
+namespace Bestora\FilamentActivityLog\Resources\ActivitylogResource\Schemas;
 
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -9,7 +9,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Rmsramos\Activitylog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\ActivitylogPlugin;
 
 class ActivitylogForm
 {

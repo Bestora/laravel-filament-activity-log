@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog;
+namespace Bestora\FilamentActivityLog;
 
 use Closure;
 use Filament\Contracts\Plugin;

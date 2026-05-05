@@ -1,11 +1,11 @@
 <?php
 
-namespace Rmsramos\Activitylog\Infolists\Components;
+namespace Bestora\FilamentActivityLog\Infolists\Components;
 
 use Filament\Infolists\Components\Entry;
 use Illuminate\Support\HtmlString;
-use Rmsramos\Activitylog\ActivitylogPlugin;
-use Rmsramos\Activitylog\Infolists\Concerns\HasModifyState;
+use Bestora\FilamentActivityLog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\Infolists\Concerns\HasModifyState;
 
 class TimeLinePropertiesEntry extends Entry
 {

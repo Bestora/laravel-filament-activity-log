@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog\Infolists\Components;
+namespace Bestora\FilamentActivityLog\Infolists\Components;
 
 use Filament\Infolists\Components\RepeatableEntry;
 

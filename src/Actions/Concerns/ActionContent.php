@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog\Actions\Concerns;
+namespace Bestora\FilamentActivityLog\Actions\Concerns;
 
 use Exception;
 use Filament\Schemas\Schema;
@@ -12,11 +12,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
-use Rmsramos\Activitylog\ActivitylogPlugin;
-use Rmsramos\Activitylog\Infolists\Components\TimeLineIconEntry;
-use Rmsramos\Activitylog\Infolists\Components\TimeLinePropertiesEntry;
-use Rmsramos\Activitylog\Infolists\Components\TimeLineRepeatableEntry;
-use Rmsramos\Activitylog\Infolists\Components\TimeLineTitleEntry;
+use Bestora\FilamentActivityLog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\Infolists\Components\TimeLineIconEntry;
+use Bestora\FilamentActivityLog\Infolists\Components\TimeLinePropertiesEntry;
+use Bestora\FilamentActivityLog\Infolists\Components\TimeLineRepeatableEntry;
+use Bestora\FilamentActivityLog\Infolists\Components\TimeLineTitleEntry;
 use Spatie\Activitylog\Models\Activity;
 
 trait ActionContent

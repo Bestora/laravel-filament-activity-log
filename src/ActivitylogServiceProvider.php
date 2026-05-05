@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmsramos\Activitylog;
+namespace Bestora\FilamentActivityLog;
 
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;

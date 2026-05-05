@@ -1,9 +1,9 @@
 <?php
 
-namespace Rmsramos\Activitylog\Actions;
+namespace Bestora\FilamentActivityLog\Actions;
 
 use Filament\Actions\Action;
-use Rmsramos\Activitylog\Actions\Concerns\ActionContent;
+use Bestora\FilamentActivityLog\Actions\Concerns\ActionContent;
 
 class ActivityLogTimelineSimpleAction extends Action
 {

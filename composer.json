@@ -43,13 +43,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Rmsramos\\Activitylog\\": "src/",
-            "Rmsramos\\Activitylog\\Database\\Factories\\": "database/factories/"
+            "Bestora\\FilamentActivityLog\\": "src/",
+            "Bestora\\FilamentActivityLog\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rmsramos\\Activitylog\\Tests\\": "tests/",
+            "Bestora\\FilamentActivityLog\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -81,10 +81,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rmsramos\\Activitylog\\ActivitylogServiceProvider"
+                "Bestora\\FilamentActivityLog\\ActivitylogServiceProvider"
             ],
             "aliases": {
-                "Activitylog": "Rmsramos\\Activitylog\\Facades\\Activitylog"
+                "Activitylog": "Bestora\\FilamentActivityLog\\Facades\\Activitylog"
             }
         }
     },
