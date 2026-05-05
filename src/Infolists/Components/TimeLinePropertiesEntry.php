@@ -2,10 +2,10 @@
 
 namespace Bestora\FilamentActivityLog\Infolists\Components;
 
-use Filament\Infolists\Components\Entry;
-use Illuminate\Support\HtmlString;
 use Bestora\FilamentActivityLog\ActivitylogPlugin;
 use Bestora\FilamentActivityLog\Infolists\Concerns\HasModifyState;
+use Filament\Infolists\Components\Entry;
+use Illuminate\Support\HtmlString;
 
 class TimeLinePropertiesEntry extends Entry
 {

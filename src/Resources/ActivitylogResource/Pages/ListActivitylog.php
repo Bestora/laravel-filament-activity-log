@@ -2,8 +2,8 @@
 
 namespace Bestora\FilamentActivityLog\Resources\ActivitylogResource\Pages;
 
-use Filament\Resources\Pages\ListRecords;
 use Bestora\FilamentActivityLog\Resources\ActivitylogResource\ActivitylogResource;
+use Filament\Resources\Pages\ListRecords;
 
 class ListActivitylog extends ListRecords
 {

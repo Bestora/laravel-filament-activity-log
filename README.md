@@ -19,9 +19,10 @@ This package provides a Filament resource that shows you all of the activity log
 
 ## Requirements
 
--   Laravel v13
--   Filament v4
--   Spatie Laravel Activity Log v4
+-   PHP ^8.4
+-   Laravel ^11.0 | ^12.0 | ^13.0
+-   Filament ^5.6
+-   Spatie Laravel Activity Log ^5.0
 
 ## Languages Supported
 
@@ -105,7 +106,7 @@ php artisan vendor:publish --tag="activitylog-views"
 
 In you `Model` add `Spatie\Activitylog\Traits\LogsActivity` trait, and configure `getActivitylogOption` function
 
-For more configuration, Please review [Spatie Docs](https://spatie.be/docs/laravel-activitylog/v4)
+For more configuration, Please review [Spatie Docs](https://spatie.be/docs/laravel-activitylog/v5)
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -694,6 +695,8 @@ Special acknowledgment goes to these remarkable tools and people (developers), t
 
 -   [Rômulo Ramos](https://github.com/rmsramos) for the original Package
 -   [TappNetwork](https://github.com/TappNetwork) for the Filament v4 PR
+-   [Bestora](https://github.com/Bestora)
+-   [opencode](https://github.com/anomalyco/opencode) with Kimi K2.6
 -   [All Contributors](../../contributors)
 
 ## License

@@ -2,21 +2,21 @@
 
 namespace Bestora\FilamentActivityLog\Actions\Concerns;
 
-use Exception;
-use Filament\Schemas\Schema;
-use Filament\Actions\Action;
-use Carbon\Exceptions\InvalidFormatException;
-use Closure;
-use Filament\Infolists\Components\TextEntry;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Collection;
 use Bestora\FilamentActivityLog\ActivitylogPlugin;
 use Bestora\FilamentActivityLog\Infolists\Components\TimeLineIconEntry;
 use Bestora\FilamentActivityLog\Infolists\Components\TimeLinePropertiesEntry;
 use Bestora\FilamentActivityLog\Infolists\Components\TimeLineRepeatableEntry;
 use Bestora\FilamentActivityLog\Infolists\Components\TimeLineTitleEntry;
+use Carbon\Exceptions\InvalidFormatException;
+use Closure;
+use Exception;
+use Filament\Actions\Action;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Schema;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 use Spatie\Activitylog\Models\Activity;
 
 trait ActionContent
@@ -93,7 +93,7 @@ trait ActionContent
 
                                     if ($relationInstance instanceof BelongsToMany) {
                                         $subjectType = $relationInstance->getPivotClass();
-                                        $relatedIds  = $relationInstance->pluck($relationInstance->getTable().'.id')->toArray();
+                                        $relatedIds  = $relationInstance->pluck($relationInstance->getTable() . '.id')->toArray();
 
                                         if (! empty($relatedIds)) {
                                             $query->orWhere(function (Builder $q) use ($subjectType, $relatedIds) {
@@ -105,8 +105,8 @@ trait ActionContent
                                         continue;
                                     }
 
-                                    $relatedModel     = $relationInstance->getRelated();
-                                    $relatedIds       = $relationInstance->pluck('id')->toArray();
+                                    $relatedModel = $relationInstance->getRelated();
+                                    $relatedIds   = $relationInstance->pluck('id')->toArray();
 
                                     if (! empty($relatedIds)) {
                                         $query->orWhere(function (Builder $q) use ($relatedModel, $relatedIds) {
@@ -125,7 +125,7 @@ trait ActionContent
     }
     protected function configureInfolist(): void
     {
-        $this->infolist(function (?Model $record, Schema $schema) {
+        $this->schema(function (?Model $record, Schema $schema) {
             $activities = $this->getActivityLogRecord($record, $this->getWithRelations());
 
             $formattedActivities = $activities->map(function ($activity) {
@@ -337,8 +337,7 @@ trait ActionContent
         ];
     }
 
-
-    protected static function formatDateValues(array|string|null $value): array|string|null
+    protected static function formatDateValues(mixed $value): mixed
     {
         if (is_null($value)) {
             return $value;
@@ -352,12 +351,12 @@ trait ActionContent
             return $value;
         }
 
-        if (is_numeric($value) && ! preg_match('/^\d{10,}$/', $value)) {
-            return $value;
-        }
-
         if (is_bool($value)) {
             return $value ? 'true' : 'false';
+        }
+
+        if (is_numeric($value) && ! preg_match('/^\d{10,}$/', (string) $value)) {
+            return $value;
         }
 
         try {

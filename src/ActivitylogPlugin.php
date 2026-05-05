@@ -77,7 +77,13 @@ class ActivitylogPlugin implements Plugin
 
     public static function get(): static
     {
-        return filament(app(static::class)->getId());
+        $plugin = filament(app(static::class)->getId());
+
+        if (! $plugin instanceof static) {
+            throw new \RuntimeException('Activitylog plugin is not registered.');
+        }
+
+        return $plugin;
     }
 
     public function getResource(): string

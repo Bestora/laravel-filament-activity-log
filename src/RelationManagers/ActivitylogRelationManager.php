@@ -2,13 +2,13 @@
 
 namespace Bestora\FilamentActivityLog\RelationManagers;
 
-use Filament\Schemas\Schema;
-use Filament\Actions\ViewAction;
-use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 use Bestora\FilamentActivityLog\ActivitylogPlugin;
 use Bestora\FilamentActivityLog\Resources\ActivitylogResource\ActivitylogResource;
+use Filament\Actions\ViewAction;
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Schemas\Schema;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class ActivitylogRelationManager extends RelationManager
 {

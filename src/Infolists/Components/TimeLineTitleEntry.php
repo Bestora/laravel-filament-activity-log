@@ -2,14 +2,14 @@
 
 namespace Bestora\FilamentActivityLog\Infolists\Components;
 
+use Bestora\FilamentActivityLog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\Infolists\Concerns\HasModifyState;
 use Closure;
 use Filament\Forms\Components\Concerns\CanAllowHtml;
 use Filament\Infolists\Components\Entry;
 use Filament\Support\Concerns\HasExtraAttributes;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use Bestora\FilamentActivityLog\ActivitylogPlugin;
-use Bestora\FilamentActivityLog\Infolists\Concerns\HasModifyState;
 
 class TimeLineTitleEntry extends Entry
 {
