@@ -3,9 +3,12 @@
 namespace Bestora\FilamentActivityLog\Resources\ActivitylogResource\Schemas;
 
 use Bestora\FilamentActivityLog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\Helpers\ActivityLogHelper;
+use Bestora\FilamentActivityLog\Resources\ActivitylogResource\ActivitylogResource;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ViewEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
@@ -24,10 +27,15 @@ class ActivitylogForm
                         })
                         ->label(__('activitylog::forms.fields.causer.label')),
 
-                    TextInput::make('subject_type')
-                        ->afterStateHydrated(function ($component, ?Activity $record, $state) {
-                            return $state ? $component->state(Str::of($state)->afterLast('\\')->headline() . ' # ' . $record->subject_id) : $component->state('-');
+                    TextEntry::make('subject_type')
+                        ->state(function (?Activity $record): string {
+                            if (! $record?->subject_type) {
+                                return '-';
+                            }
+
+                            return Str::of($record->subject_type)->afterLast('\\')->headline() . ' # ' . $record->subject_id;
                         })
+                        ->url(fn (?Activity $record): ?string => $record ? ActivitylogResource::getResourceUrl($record) : null)
                         ->label(__('activitylog::forms.fields.subject_type.label')),
 
                     Textarea::make('description')
@@ -62,6 +70,16 @@ class ActivitylogForm
                                 ->format(ActivitylogPlugin::get()->getDatetimeFormat());
                         }),
                 ]),
+
+                Section::make()
+                    ->heading(__('activitylog::forms.changes'))
+                    ->visible(fn (?Activity $record): bool => $record !== null && filled(ActivityLogHelper::changesFor($record)))
+                    ->schema([
+                        ViewEntry::make('changes')
+                            ->hiddenLabel()
+                            ->state(fn (Activity $record): array => ActivityLogHelper::changesFor($record))
+                            ->view('activitylog::filament.tables.columns.activity-logs-properties'),
+                    ]),
             ]);
     }
 }

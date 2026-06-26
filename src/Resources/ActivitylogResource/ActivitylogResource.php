@@ -12,7 +12,6 @@ use Bestora\FilamentActivityLog\Traits\HasCustomActivityResource;
 use Exception;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Placeholder;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -79,32 +78,31 @@ class ActivitylogResource extends Resource
             number_format(static::getModel()::count()) : null;
     }
 
-    protected static function getResourceUrl(Activity $record): string
+    public static function getResourceUrl(Activity $record): ?string
     {
-        $panelID = Filament::getCurrentOrDefaultPanel()->getId();
-
-        if ($record->subject_type && $record->subject_id) {
-            try {
-                $model = app($record->subject_type);
-
-                if (ActivityLogHelper::classUsesTrait($model, HasCustomActivityResource::class)) {
-                    $resourceModel      = $model->getFilamentActualResourceModel($record);
-                    $resourcePluralName = ActivityLogHelper::getResourcePluralName($resourceModel);
-
-                    return route('filament.' . $panelID . '.resources.' . $resourcePluralName . '.edit', ['record' => $resourceModel->id]);
-                }
-
-                // Fallback to a standard resource mapping
-                $resourcePluralName = ActivityLogHelper::getResourcePluralName($record->subject_type);
-
-                return route('filament.' . $panelID . '.resources.' . $resourcePluralName . '.edit', ['record' => $record->subject_id]);
-            } catch (Exception $e) {
-                // If there's any error generating the URL, return placeholder
-                return '#';
-            }
+        if (! $record->subject_type || ! $record->subject_id) {
+            return null;
         }
 
-        return '#';
+        try {
+            $panelID = Filament::getCurrentOrDefaultPanel()->getId();
+            $model   = app($record->subject_type);
+
+            if (ActivityLogHelper::classUsesTrait($model, HasCustomActivityResource::class)) {
+                $resourceModel      = $model->getFilamentActualResourceModel($record);
+                $resourcePluralName = ActivityLogHelper::getResourcePluralName($resourceModel);
+
+                return route('filament.' . $panelID . '.resources.' . $resourcePluralName . '.edit', ['record' => $resourceModel->id]);
+            }
+
+            // Fallback to a standard resource mapping
+            $resourcePluralName = ActivityLogHelper::getResourcePluralName($record->subject_type);
+
+            return route('filament.' . $panelID . '.resources.' . $resourcePluralName . '.edit', ['record' => $record->subject_id]);
+        } catch (Exception $e) {
+            // If there's any error generating the URL (e.g. no matching resource/route), render no link.
+            return null;
+        }
     }
 
     public static function form(Schema $schema): Schema
@@ -212,6 +210,7 @@ class ActivitylogResource extends Resource
 
                 return $subjectInfo;
             })
+            ->url(fn (Activity $record): ?string => static::getResourceUrl($record))
             ->searchable()
             ->hidden(fn (Livewire $livewire) => $livewire instanceof ActivitylogRelationManager);
     }
@@ -238,7 +237,7 @@ class ActivitylogResource extends Resource
             ->searchable(query: fn (Builder $query, string $search): Builder => ActivityLogHelper::applyChangesSearch($query, $search))
             ->label(__('activitylog::tables.columns.properties.label'))
             ->view('activitylog::filament.tables.columns.activity-logs-properties')
-            ->toggleable(isToggledHiddenByDefault: true);
+            ->toggleable(isToggledHiddenByDefault: (bool) config('filament-activitylog.resources.hide_properties_column_by_default', false));
     }
 
     public static function getCreatedAtColumnComponent(): Column
