@@ -3,6 +3,7 @@
 namespace Bestora\FilamentActivityLog\Actions\Concerns;
 
 use Bestora\FilamentActivityLog\ActivitylogPlugin;
+use Bestora\FilamentActivityLog\Helpers\ActivityLogHelper;
 use Bestora\FilamentActivityLog\Infolists\Components\TimeLineIconEntry;
 use Bestora\FilamentActivityLog\Infolists\Components\TimeLinePropertiesEntry;
 use Bestora\FilamentActivityLog\Infolists\Components\TimeLineRepeatableEntry;
@@ -307,17 +308,7 @@ trait ActionContent
 
     protected function formatActivityData($activity): array
     {
-        $properties = [];
-
-        if ($activity->properties) {
-            if (is_string($activity->properties)) {
-                $properties = json_decode($activity->properties, true) ?? [];
-            } elseif (is_array($activity->properties)) {
-                $properties = $activity->properties;
-            } elseif (is_object($activity->properties) && method_exists($activity->properties, 'toArray')) {
-                $properties = $activity->properties->toArray();
-            }
-        }
+        $properties = ActivityLogHelper::changesFor($activity);
 
         if ($activity->event === 'restored') {
             if (empty($properties) && $activity->description !== 'restored') {

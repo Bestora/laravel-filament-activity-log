@@ -234,7 +234,8 @@ class ActivitylogResource extends Resource
     public static function getPropertiesColumnComponent(): Column
     {
         return ViewColumn::make('properties')
-            ->searchable()
+            ->getStateUsing(fn (Activity $record): array => ActivityLogHelper::changesFor($record))
+            ->searchable(query: fn (Builder $query, string $search): Builder => ActivityLogHelper::applyChangesSearch($query, $search))
             ->label(__('activitylog::tables.columns.properties.label'))
             ->view('activitylog::filament.tables.columns.activity-logs-properties')
             ->toggleable(isToggledHiddenByDefault: true);
@@ -400,8 +401,9 @@ class ActivitylogResource extends Resource
             return;
         }
 
-        $oldProperties = data_get($activity, 'properties.old');
-        $newProperties = data_get($activity, 'properties.attributes');
+        $changes       = ActivityLogHelper::changesFor($activity);
+        $oldProperties = $changes['old'] ?? null;
+        $newProperties = $changes['attributes'] ?? null;
 
         if ($oldProperties === null) {
             Notification::make()
